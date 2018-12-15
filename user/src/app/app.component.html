@@ -1,0 +1,196 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+  
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="height:80px,list-style=0%;">
+
+    <a class="navbar-brand" href="#">Logo</a>
+    &nbsp;
+    <div class="input-group-prepend">
+      <input type="text" class="form-control" style="width:250px" [(ngModel)]="searchtxt">
+      <span class="input-group-text pt-2 fa fa-search  bg-secondary text-white"></span>
+    </div>
+
+
+
+
+    <ul class="ml-auto">
+      <li class="dropdown  ml-auto" *ngIf="hide==0">
+        <a class="fa fa-user-circle profile" data-toggle="dropdown" style="color:white"></a>
+        <ul class="dropdown-menu">
+          <li class="container-fluid pl-3">
+            <a href="#">profile</a>
+            <br>
+
+            <a href="#"(click)="funclose()">logout</a>
+            <br>
+
+          </li>
+        </ul>
+
+      </li>
+    </ul>
+
+
+  </nav>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown" *ngFor="let x of data">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          {{x.catname}}
+        </a>
+        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+          <li class="dropdown-submenu" *ngFor="let y of sdata">
+            <a class="dropdown-item" tabindex="-1" href="#" *ngIf="x._id==y.catid">{{y.subcatname}}</a>
+            <ul class="dropdown-menu">
+              <li *ngFor="let z of ssdata">
+                <a *ngIf="y._id==z.subcatid" [routerLink]="['product',z]">{{z.ssubname}}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="navbar-nav" style="margin-left:500px;" *ngIf="hide==1">
+        <input type="button" class="btn btn-dark" value="Login" style="height: 50px;" (click)="login_fun()">
+        <input type="button" class="btn btn-dark" value="Register" style="height: 50px;" (click)="registor_fun()">
+      </li>
+    </ul>
+    <div class="ml-auto " *ngIf="hide==0">
+
+      <span class="bg-warning float-left carr mt-2 pt-1 text-white text-center" [routerLink]="['/cart']">{{currentitemlength}}
+      </span>
+      <div class="nav-item float-left">
+        <a class="nav-link text-white ">
+          <span class="fa fa-cart-plus"></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!--LOGIN DATA...-->
+
+  <div class="a row justify-content-center p-5" [@anm1]="tmp">
+    <div class="login bg-dark">
+      <div class="container">
+        <span class="fa fa-window-close pull-right text-danger faicon" (click)="fun_close()"></span>
+        <h1 class="text-center b">Login</h1>
+        <h4 class="b">UserName</h4>
+        <div class="input-group-prepend">
+          <span class="input-group-text fa fa-user"></span>
+          <input style="border-radius:5px" type="text" name="user" [(ngModel)]="uname">
+
+        </div>
+        <h4 class="b">Password</h4>
+        <div class="input-group-prepend">
+          <span class="input-group-text pt-2 fa fa-lock  bg-secondary text-white"></span>
+          <input style="border-radius:5px" type="password" [(ngModel)]="pwd">
+        </div>
+        <br>
+        <a href='#'>Forget Password</a>
+        <input type="button" value="login" class="btn btn-secondary pull-right" (click)="login()">
+        <br>
+        <br>
+        <br>
+        <input type="button" value="Registor" (click)="registor_fun()" class="btn btn-dark pull-right">
+      </div>
+    </div>
+  </div>
+
+  <!--REGISTRATION DATA.....-->
+
+  <div class="a p-3 " [@anm2]="tmp2">
+    <span class="fa fa-window-close pull-right text-danger" (click)="fun_cls()"></span>
+    <h1 class="text-center">Register</h1>
+    <h5>username:</h5>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text pt-2 fa fa-user bg-secondary text-white"></span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="uname1">
+    </div>
+    <h5>Type password:</h5>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text pt-2 fa fa-lock  bg-secondary text-white"></span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="pwd1">
+    </div>
+    <h5>Retype password:</h5>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text pt-2 fa fa-lock  bg-secondary text-white"></span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="rpwd">
+    </div>
+    <h5>Enter email</h5>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text pt-2 fa fa-at  bg-secondary text-white"></span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="em">
+    </div>
+    <h5>Mobile no</h5>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text pt-2 fa fa-phone  bg-secondary text-white"></span>
+      </div>
+      <input type="text" class="form-control" [(ngModel)]="mbno">
+    </div>
+
+    <input type="button" value="register" class="btn btn-dark pull-right" (click)="fun_reg()">
+
+    <input type="button" value="Login" class="btn btn-secondary pull-right" (click)="login_fun()">
+  </div>
+
+
+
+  <router-outlet>
+
+  </router-outlet>
+
+</body>
+
+
+<style>
+  .navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+  }
+
+  .navbar {
+    margin-bottom: 1px;
+  }
+
+  .container-fluid {
+    padding: 0px;
+    margin: 0px;
+  }
+</style>
+
+
+<style>
+  .navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+    background: blueviolet;
+    margin: 2px;
+    border-radius: 2px;
+  }
+
+  .navbar-inverse .navbar-nav>li>a:hover {
+    color: blueviolet !important;
+    background: #fff;
+  }
+</style>

@@ -1,0 +1,160 @@
+<div style="margin: 40px;">
+
+<div style="margin:10px 0px;">  
+Select Category :
+<select class="select" name="drp1" [(ngModel)]="drpcat" (change)="dpsubcatdata()"> 
+<option  *ngFor="let x of data1" value="{{x._id}}" >
+  {{x.catname}}
+</option>
+</select>
+</div>
+
+<div style="margin:10px 0px;">
+Select Sub Category :
+<select class="select" name="drp2" [(ngModel)]="drpsubcat" (change)="dpsubsubcatdata()">
+<option *ngFor="let y of data2" value="{{y._id}}">{{y.subcatname}}</option>
+</select>
+</div>
+
+<div style="margin:10px 0px;">
+Select Sub sub Category :
+<select class="select" name="drp4" [(ngModel)]="drpsubsubcat">
+<option *ngFor="let z of data3" value="{{z._id}}">{{z.ssubname}}</option>
+</select>
+</div>
+
+<div style="margin:10px 0px;">
+Select Brand :
+<select class="select" name="drp3" [(ngModel)]="drpbrand">
+<option *ngFor="let b of data4">{{b.brandname}}</option>
+</select>
+</div>
+
+<div style="margin:10px 0px;">
+Product Name:
+<input type="text" [(ngModel)]="txtprdt" placeholder="Enter Product Name" class="select">
+</div>
+
+<div>
+  <form  method="post" name="frm1" id="fm1" enctype="multipart/form-data" action="http://localhost:3500/upload" >
+  Image:
+  <input type="file" name="f1" class="form-control-file w-50">
+  &nbsp;
+   <br>
+   <br>
+  </form>
+</div>
+
+<div style="margin:10px 0px;">
+Product Color:
+<input type="color" name="pc" [(ngModel)]="colrprdt" style="padding: 10px; width: 50px;">
+</div>
+
+<div style="margin:10px 0px;">
+  Price:
+  <input type="number" name="pr" [(ngModel)]="prprdt" style="padding: 10px; width: 150px;" min="1">
+  </div>
+
+  <div style="margin:10px 0px;">
+    Description:
+    <textarea class="txtarea" name="des" [(ngModel)]="desprdt"> </textarea>
+    </div>
+  
+<div style="margin:10px 0px;">
+Qtuantity:
+<input type="number" name="pq" [(ngModel)]="qtyprdt" style="padding: 10px; width: 150px;" min="1">
+</div>
+
+<div style="margin:10px 0px;">
+Rating:
+<input type="number" name="pr" [(ngModel)]="ratprdt" style="padding: 10px; width: 150px;" min="1" max="5">
+</div>
+
+<div style="margin:10px 0px;">
+<input type="button" class="button" value="Insert Product" (click)="product_ins()"> 
+</div>
+  
+<br>
+
+</div>
+
+<!--
+<///////////reading product details///////
+-->
+
+
+
+<table>
+<tr>
+  <th>Pid</th>
+  <th>Pname</th>
+  <th>Pimg</th>
+  <th>SSubCat Name</th>
+  <th>SCat Name</th>
+  <th>Cat Name</th>
+  <th>PQnty</th>
+  <th>Pclr</th>
+  <th>price</th>
+  <th>Prtng</th>
+  <th>Brand</th>
+</tr>
+
+
+<tr *ngFor="let x of allproductdata">
+  <td>{{x._id}}</td>
+  <td>{{x.pname}}</td>
+  <td><img name="tt" style="height:30px;width:30px" src="http://localhost:1432/assets/upload/{{x.pimg}}"></td>
+    <td>{{x.ssubname}}</td>
+    <td>{{x.subcatname}}</td>
+      <td>{{x.catname}}</td>
+      <td>{{x.pquantity}}</td>
+      <td>{{x.pprice}}</td>
+      <td>{{x.prating}}</td>
+      <td>{{x.pcolour}}</td>
+      <td>{{x.brandid}}</td>
+      
+</tr>
+
+</table>
+
+
+
+
+<style>
+    table{width:90%; margin:30px auto; padding:10px; border:1px solid #ccc}
+    td, th{ padding: 10px;border-bottom:1px solid #ccc; text-align: left;}
+   tr:last-child td{border-bottom:0px solid #ccc;}
+   .select{
+  width:300px;
+  background:#fff;
+  border:1px solid #ccc;
+  padding:10px;
+  
+    }
+    .cls{
+        padding:10px 20px;
+      }
+    .button{
+      
+      background:#2c7ab7;
+      border:1px solid #2c7ab7;
+      padding: 5px 10px;
+      border-radius:2px;
+      text-align:center;
+      color:#fff;
+          
+      }
+
+      .txtarea{width:50%; height:100px; padding:10px; vertical-align:top; resize: none; }
+      
+      .button:hover{
+          background:#ffb03c;
+          border:1px solid #ffb03c;  
+          color:#000;
+      }
+      select{
+        cursor: pointer;
+        }
+  
+  </style>
+

@@ -1,0 +1,11 @@
+{
+    "/catserverfile/*":{"target":"http://localhost:3500"},
+    
+    "/subcatserverfile/*":{"target":"http://localhost:3500"},
+    
+    "/subsubcatserverfile/*": {"target":"http://localhost:3500"},
+
+    "/brandserverfile/*": {"target":"http://localhost:3500"},
+
+    "/productserverfile/*": {"target":"http://localhost:3500"}
+}

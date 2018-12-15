@@ -1,0 +1,136 @@
+
+<form>
+    <div style="margin:40px">
+  <div>
+  Select Category Name: 
+  <select class="select" name="drp1" [(ngModel)]="drpcat" (change)="dpsubcatdata()">
+    <option *ngFor="let x of data1" value="{{x._id}}">
+      {{x.catname}}
+    </option>
+  </select>
+</div>
+
+<div>
+    Select Sub Category Name: 
+    <select class="select" name="drp2" [(ngModel)]="drpsubcat">
+      <option *ngFor="let y of data2" value="{{y._id}}" >
+        {{y.subcatname}}
+      </option>
+    </select>
+  </div>
+
+  <div>
+      Enter Sub Sub Category Name: 
+      <input type="text" class="select" [(ngModel)]="ssubcattxt" name="ssubtxt" placeholder="Sub sub Category" >
+    </div>
+
+    <p>
+      <input type="button" value="Insert Subsubcategory" (click)="ins_subsubcat()" class="button" >
+    </p>
+
+</div>
+
+</form>
+
+<div>
+
+  <table>
+<tr>
+  <th>SsubcatId</th>
+  <th>Sub Sub Category Name</th>
+  <th>Category Name</th>
+  <th>Sub Category Name</th>
+  <th>Actions</th>
+  
+</tr>
+
+<tr *ngFor="let x of allsscatdata; let sscid=index">
+  <td *ngIf="x._id!=tem; else updatessc">{{x._id}}</td>
+  <td *ngIf="x._id!=tem">{{x.ssubname}}</td>
+  <td *ngIf="x._id!=tem">{{x.catname}}</td>
+  <td *ngIf="x._id!=tem">{{x.subcatname}}</td>
+  <td *ngIf="x._id!=tem">
+<input type="button" value="Update" (click)="update_sscat(x)" class="button">
+&nbsp;
+<input type="button" value="Delete" (click)="del_sscat(x.ssubname)" class="button">
+&nbsp;
+<span *ngIf="x.active==1">
+<input type="button" value="Inactive" (click)="inact_sscat(x,0)" class="button">
+</span>
+&nbsp;
+<span *ngIf="x.active==0">
+<input type="button" value="Active" (click)="act_sscat(x,1)" class="button">
+</span>
+  </td>
+  <ng-template #updatessc>
+    <td>{{tem}}</td>
+    <td>
+      <input type="text" [(ngModel)]="ssctxt" class="cls">
+    </td>
+    <td>
+      <select name="drp1" [(ngModel)]="drpcat" (change)="dpsubcatdata()" class="cls">
+        <option *ngFor="let x of data1" value="{{x._id}}">
+          {{x.catname}}
+        </option>
+      </select>
+    </td>
+    <td>
+      <select name="drp2" [(ngModel)]="drpsubcat" class="cls">
+        <option *ngFor="let y of data2" value="{{y._id}}" >
+          {{y.subcatname}}
+        </option>
+      </select>
+    </td>
+    <td *ngIf="tem!=0">
+      <input type="button" value="Save" (click)="sav_sscat()" class="button">
+&nbsp;
+<input type="button" value="Cacel" (click)="tem=0" class="button">
+    </td>
+  </ng-template>
+</tr>
+
+  </table>
+
+</div>
+
+<style>.select{
+    width:300px;
+    background:#fff;
+    border:1px solid #ccc;
+    padding:10px;
+    margin:10px;
+      }
+
+       table{width:100%; margin:30px auto; padding:10px; border:1px solid #ccc}
+    td, th{ padding: 10px;border-bottom:1px solid #ccc; text-align: left;}
+   tr:last-child td{border-bottom:0px solid #ccc;}
+   .select{
+  width:300px;
+  background:#fff;
+  border:1px solid #ccc;
+  padding:10px;
+    }
+
+    .button{
+    
+    background:#2c7ab7;
+    border:1px solid #2c7ab7;
+    padding: 5px 10px;
+    border-radius:2px;
+    text-align:center;
+    color:#fff;
+    cursor: pointer;
+        
+    }
+    
+    .button:hover{
+        background:#ffb03c;
+        border:1px solid #ffb03c;  
+        color:#000;
+    }
+
+    .cls{
+      padding:10px 20px;
+    }
+      
+      </style>

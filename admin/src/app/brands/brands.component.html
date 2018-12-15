@@ -1,0 +1,103 @@
+<div style="margin:40px ">
+  <p>
+   Enter Brand Name:&nbsp;&nbsp; <input type="text" [(ngModel)]="txtbr" class="select" placeholder="Brand name">
+  </p>
+  <input type="button" value="Insert Brand" (click)="ins_brands()" class="button">
+  </div>
+
+
+  <div style="margin:40px ">
+    <table>
+      <tr>
+        <th>Brand Id </th>    
+        <th> Brand Name </th>
+        <th> Actions </th>
+      </tr>
+    
+      <tr  *ngFor="let x of brdata">
+        <td *ngIf="x._id!=temp; else updatebrand">{{x._id}}</td>
+        <td *ngIf="x._id!=temp">{{x.brandname}}</td>
+        <td *ngIf="x._id!=temp">
+          <input type="button" value="Update" (click)="brand_update(x)" class="button">
+          &nbsp;
+          <input type="button" value="Delete" (click)="del_brand(x.brandname)" class="button">
+          &nbsp;
+         
+          <span *ngIf="x.active==1">
+            <input type="button" value="Inactive" (click)="inact_brand(x,0)" class="button">
+          </span>
+    
+          <span *ngIf="x.active==0">
+            <input type="button" value="Active" (click)="act_brand(x,1)" class="button">
+          </span>
+    
+        </td>
+      </tr>
+    </table>
+    
+    </div>
+    
+    <ng-template #updatebrand>
+    
+    <td>{{temp}}</td>
+    
+    <td><input type="text" name="txtup" [(ngModel)]="updtxt" class="cls"></td>
+    
+    <td><input type="button" value="Save" (click)="save_brand()" class="button">
+      &nbsp;
+      <input type="button" value="Cancel" (click)="temp=0" class="button">
+      
+    </td>
+    
+    </ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<style>
+  table{width:90%; margin:30px auto; padding:10px; border:1px solid #ccc}
+  td, th{ padding: 10px;border-bottom:1px solid #ccc; text-align: left;}
+ tr:last-child td{border-bottom:0px solid #ccc;}
+ .select{
+width:300px;
+background:#fff;
+border:1px solid #ccc;
+padding:10px;
+
+  }
+  .cls{
+      padding:10px 20px;
+    }
+  .button{
+    
+    background:#2c7ab7;
+    border:1px solid #2c7ab7;
+    padding: 5px 10px;
+    border-radius:2px;
+    text-align:center;
+    color:#fff;
+        
+    }
+    
+    .button:hover{
+        background:#ffb03c;
+        border:1px solid #ffb03c;  
+        color:#000;
+    }
+
+</style>

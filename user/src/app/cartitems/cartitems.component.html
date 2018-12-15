@@ -1,0 +1,33 @@
+<h1 align="center">CartItems</h1>
+<div>
+  <table class="table table-stripped">
+    <th>product</th>
+    <th>ProductName</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Total</th>
+    <tr *ngFor="let ob of cartitems let i=index ">
+      <td style="width:200px">
+        <img src="../../assets/upload/{{ob.pimg}}" style="width:75px;height:75px">
+      </td>
+    <td>
+      {{ob.pname}}
+    </td>
+    <td>
+      <span class="fa fa-minus-circle" (click)="funminus(s)"aria-hidden="true"></span>&nbsp;<span>
+        <input readonly type="text"style="width:30px;height:30px" [(ngModel)]="qty" value="{{ob.pquantity}}">&nbsp;
+        <span class="fa fa-plus-circle"(click)="funplus(s)"></span>
+      </span>
+    </td>
+    <td [(ngModel)]="price">
+      {{ob.pprice}}
+    </td>
+    <td>
+       {{ob.pquantity * ob.pprice}}
+    </td>
+    <button type="button" class="btn btn-danger"(click)="removecart(i)">RemoveCart</button>
+    </tr>
+  </table>
+  <input type="button" style="float: right" value="<<<ContinueShopping" class="btn btn-warning mr-2 mt-3">
+  <input type="button" style="float: right" value="Proceed to pay >>>" class="btn btn-success mt-3" (click)="proceedtopay()">
+</div>

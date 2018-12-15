@@ -1,0 +1,139 @@
+<div style="margin:40px ">
+<form>
+  Select Category Name:
+  <select id="cat" name="drp1" [(ngModel)]="drpcat" class="select">
+      
+    <option *ngFor="let x of cat_data" value="{{x._id}}" >
+    {{x.catname}}  
+    </option>
+  </select>
+</form>
+</div>
+
+<div style="margin:40px ">
+<p>
+  Enter Sub Category Name:&nbsp;&nbsp;
+  <input type="text" [(ngModel)]="txtsubcat" class="select" placeholder="Enter Sub Category here">
+ </p>
+ <input type="button" value="Insert Sub Category" (click)="fun_ins_subcat()" class="button">
+</div>
+
+<div>
+
+  <table>
+    <tr>
+      <th> subcat Id </th>
+      <th> subcategory Name </th>  
+      <th>  Category Name  </th>
+      <th>  Actions  </th>
+    </tr>
+ 
+    <tr *ngFor="let x of allsubcat">
+      <td *ngIf="x._id!=temp; else update">{{x._id}}</td>
+      <td *ngIf="x._id!=temp">{{x.subcatname}}</td>
+      <td *ngIf="x._id!=temp">{{x.catname}}</td>
+      <td *ngIf="x._id!=temp">
+        <input type="button" value="Update"  (click)="fun_update(x)" class="button">
+        &nbsp;
+        <input type="button" value="Delete" (click)="fun_del_subcat(x.subcatname)" class="button" >
+        &nbsp;
+        <span *ngIf="x.active==1">
+          <input type="button" value="Inactive" (click)="inact_scat(x)" class="button">
+        </span>
+        <span *ngIf="x.active==0">
+          <input type="button" value="Active" class="button" (click)="act_subcat(x)">
+
+        </span>
+        &nbsp;
+
+      </td>
+    </tr>
+  </table>
+
+ <!--
+
+<!‐‐===================Active inactive buttons code====‐‐>
+<span *ngIf="x.active==1">
+<input type="button" value="Inactive" class="btn btn‐warning"
+(click)="fun_inactive(x,0)">
+</span>
+<span *ngIf="x.active==0" >
+<input type="button" value="Active" class="btn btn‐primary"
+(click)="fun_active(x,1)">
+</span>
+<!‐‐============================================================‐‐>
+
+ -->
+
+  <ng-template #update>
+    <td>{{temp}}</td>
+    <td><input type=text name="t1" [(ngModel)]="txt" class="cls" ></td>  
+
+      <td>
+        <select [(ngModel)]="catupdate" class="cls" >
+            <option *ngFor="let x of cat_data" value={{x._id}}>
+                {{x.catname}}
+              </option>
+        </select>
+        </td>
+
+        <td *ngIf="tmp!=0"><input type="button" value="save" (click)="fun_save()" class="button">
+        &nbsp;
+        <input type="button" value="Cancel" (click)="tmp=0" class="button" >
+      </td>
+
+  </ng-template>
+  
+  </div>
+
+  <!--
+    <ng‐template #elsdiv>
+<td><select class="form‐control" [(ngModel)]="updsel">
+<option *ngFor="let c of rst" value="{{c._id}}">{{c.cname}}</option>
+</select></td>
+<td> <input type="text" class="form‐control" [(ngModel)]="t1"></td>
+2
+<td><input type="button" value="save" class="btn btn‐success" (click)="funsave()"></td>
+</ng‐template>
+  -->
+  
+  
+  <style>
+    table{width:90%; margin:30px auto; padding:10px; border:1px solid #ccc}
+    td, th{ padding: 10px;border-bottom:1px solid #ccc; text-align: left;}
+   tr:last-child td{border-bottom:0px solid #ccc;}
+   .select{
+  width:300px;
+  background:#fff;
+  border:1px solid #ccc;
+  padding:10px;
+    }
+
+  .select{
+width:300px;
+background:#fff;
+border:1px solid #ccc;
+padding:10px;
+  }
+  .cls{
+      padding:10px 20px;
+    }
+
+  .button{
+    
+    background:#2c7ab7;
+    border:1px solid #2c7ab7;
+    padding: 5px 10px;
+    border-radius:2px;
+    text-align:center;
+    color:#fff;
+        
+    }
+    
+    .button:hover{
+        background:#ffb03c;
+        border:1px solid #ffb03c;  
+        color:#000;
+    }
+</style>
+

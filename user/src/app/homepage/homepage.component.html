@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  </style>
+</head>
+<body>
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    
+   <!-- <div class="carousel-item">
+      <img src="../../assets/lapytop.jpg" alt="New York" width="1100" height="500">
+    </div>-->
+    <div class="carousel-item">
+      <img src="../../assets/lapytop.png" alt="lapytop" width="1100" height="500">
+    </div>
+    <div class="carousel-item active">
+        <img src="../../assets/Screenshot (33).png" alt="Los Angeles" width="1100" height="500">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/Screenshot (30).png" alt="Chicago" width="1100" height="500">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/Screenshot (31).png" alt="Chicago" width="1100" height="500">
+      </div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+  <!--  <span class="carousel-control-prev-icon"></span>-->
+  <i class="fa fa-arrow-right"></i>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+   <!-- <span class="carousel-control-next-icon"></span>-->
+   <i class="fa fa-arrow-left"></i>
+  </a>
+</div>
+<br><br>
+
+<!-- PRODUCU CROUSEL STARTS-->
+
+<div class="container">
+    <div id="productslider"  class="carousel slide productslider" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-sm">
+                        <a href="#">
+                        <img class="d-block w-100" src="../../assets/upload/img1533364443_lapy.jpg" alt="1 slide"></a>
+                    <h3>Product Heading</h3>
+                    <p>This is Description </p>
+                    <div>
+                        <button class="btn btn-primary">Add To Cart</button>&nbsp;
+                        <button class="btn btn-success">view Details</button>
+                    </div>
+                    
+                    </div>
+                    <div class="col-sm">
+                    <a href="#"><img class="d-block w-100" src="../../assets/nivya bodylotion.jpg"  [routerLink]="['/product']" alt="2 slide"></a>
+                        
+                        <h3>Product Heading</h3>
+                    <p>This is Description </p>
+                    <div>
+                        <button class="btn btn-primary">Add To Cart</button>&nbsp;
+                        <button class="btn btn-success">view Details</button>
+                    </div>
+                    
+                        </div>
+                    <div class="col-sm">
+                    <a href="#"><img class="d-block w-100" src="../../assets/saree.jpeg" alt="3 slide"></a>
+                        
+                        <h3>Product Heading</h3>
+                    <p>This is Description </p>
+                    <div>
+                        <button class="btn btn-primary">Add To Cart</button>&nbsp;
+                        <button class="btn btn-success">view Details</button>
+                    </div>
+                        
+                        </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-sm">
+                    <a href="#">
+                      <img class="d-block w-100" src="../../assets/book.jpeg" alt="4 slide"></a>
+                        
+                        <h3>Product Heading</h3>
+                    <p>This is Description </p>
+                    <div>
+                        <button class="btn btn-primary">Add To Cart</button>&nbsp;
+                        <button class="btn btn-success">view Details</button>
+                    </div>
+                    
+                        </div>
+                    <div class="col-sm">
+                      <a href="#">
+                        <img class="d-block w-100" src="../../assets/men.jpeg" alt="5 slide"></a>
+                        
+                        <h3>Product Heading</h3>
+                    <p>This is Description </p>
+                    <div>
+                        <button class="btn btn-primary">Add To Cart</button>&nbsp;
+                        <button class="btn btn-success">view Details</button>
+                    </div>
+                    
+                        </div>
+                    <div class="col-sm">
+                    <a href="#"><img class="d-block w-100" src="../../assets/upload/room.jpeg" alt="6 slide"></a>
+                        
+                        <h3>Product Heading</h3>
+                    <p>This is Description </p>
+                    <div>
+                        <button class="btn btn-primary">Add To Cart</button>&nbsp;
+                        <button class="btn btn-success">view Details</button>
+                    </div>
+                    
+                        </div>
+                </div>
+            </div>
+        </div>
+          
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#productslider" data-slide="prev">
+      <!--  <span class="carousel-control-prev-icon"></span>-->
+      <i class="fa fa-arrow-right"></i>
+      </a>
+      <a class="carousel-control-next" href="#productslider" data-slide="next">
+       <!-- <span class="carousel-control-next-icon"></span>-->
+       <i class="fa fa-arrow-left"></i>
+      </a>
+      
+    </div>
+</div>
+
+<br><br>
+<!--ENDS-->
+
+<style>
+  
+  .productslider .carousel-inner img{height:auto;}
+</style>
+</body>
+</html>

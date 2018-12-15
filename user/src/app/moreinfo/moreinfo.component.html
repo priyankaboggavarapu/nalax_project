@@ -1,0 +1,35 @@
+<div class="container">
+<div class="row"  *ngFor="let s of moreinfo">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+  <img class="det" src="../../assets/upload/{{s.pimg}}">
+  </div>
+
+<div class="col-lg-6 col-md-6 col-sm-12 mt-3">
+  <h1>Product Details</h1>
+  <h3>ProductName:{{s.pname}}</h3>
+  <h3>Price:</h3>
+  <h3>Colour:&nbsp;&nbsp;<input class="margin" type="color" value="{{s.pcolour}}"></h3>
+  <h3>Description</h3>
+  
+  
+  <h3>Quantity:<span class="fa fa-minus-circle" (click)="funminus(s)"aria-hidden="true"></span>&nbsp;<span>
+    <input readonly type="text"style="width:30px;height:30px" [(ngModel)]="selqty">&nbsp;
+    <span class="fa fa-plus-circle"(click)="funplus(s)"></span>
+  </span></h3>
+  
+
+  
+  <h3 >Rating:
+      <span class="fa fa-star star" *ngFor="let rate of ratingarr"></span>
+  <span *ngIf="halfstar==1" class="fa fa-star-half star" ></span></h3>
+  <button class="btn btn-success" (click)="funaddtocart(s)"><span class="class-prepend fa fa-shopping-cart">&nbsp;&nbsp;addtocart</span></button>
+  <button class="btn btn-danger"><span class="class-prepend fa fa-flash">&nbsp;&nbsp;BuyNow</span></button>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+{{arr}}
+
+<style>
+  .clear{clear:both;}
+</style>

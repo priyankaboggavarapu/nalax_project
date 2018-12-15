@@ -1,0 +1,23 @@
+<div class="container">
+  <br><br>
+  <div class="row clearfix">
+    <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let prdt of prdata">
+      <div class="panel panel-default">
+        <div class="panel-header">
+          <img src="../../assets/upload/{{prdt.pimg}}" alt="productimage" width="200" height="400" class="img img-responsive">
+        </div>
+        <div class="panel-body">
+          <h4>{{prdt.pname}}</h4>
+         <input type="color" value="{{prdt.pcolour}}">
+
+          <p>{{prdt.prating}}</p>
+        </div>
+        <div class="panel-footer">
+          <input type="button" value="Add to cart" class="btn btn-primary">
+          <input type="button" value="View Detils" [routerLink]='["/more",{id:prdt._id}]' class="btn btn-success">
+          
+        </div>
+      </div>
+    </div>
+  </div>  
+  </div>
